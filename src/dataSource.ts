@@ -5,7 +5,7 @@ const isProd = process.env.ENV == 'production';
 export default new DataSource({
   type: "postgres",
   host: process.env.PGHOST || "localhost",
-  port: 5432,
+  port: Number(process.env.PGPORT || 5432),
   username: process.env.PGUSER || "postgres",
   password: process.env.PGPASSWORD || "postgres",
   database: process.env.PGDATABASE || "oslash",
