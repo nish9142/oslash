@@ -1,7 +1,7 @@
 import express from 'express';
 import authMiddleware from './middleware/auth';
 import usersRoute from './routes/UserRoute';
-import shortcuts from './routes/shorcutRoute'
+import shortcuts from './routes/ShorcutRoute'
 
 const app = express();
 app.use(express.json());

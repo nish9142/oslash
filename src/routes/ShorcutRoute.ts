@@ -1,11 +1,8 @@
 import express from 'express';
-import { allRequiredKeysPresent } from '../utils/helpers';
-import jwt from 'jsonwebtoken';
-import { JWT_SECRET_KEY } from '../utils/constants';
 import dataSource from '../dataSource';
-import { User } from '../entities/UserEntity';
 import { ShortCut } from '../entities/ShortcutEntity';
-import { FindOptionsOrder } from 'typeorm';
+import { User } from '../entities/UserEntity';
+import { allRequiredKeysPresent } from '../utils/helpers';
 
 const router = express.Router();
 
@@ -19,8 +16,6 @@ enum ORDER{
     ASC = "ASC", 
     DESC ="DESC"
 }
-
-
 
 router.post('/create', async (req, res) => {
     try {
