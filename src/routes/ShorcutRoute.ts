@@ -73,11 +73,11 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-function getShortCuts(userId: number, order:{sort: string, order?: "ASC" | "DESC"}[] = [], search: string, limit: number = 20, skip: number = 0) {
+function getShortCuts(userId: number, order: { sort: string, order?: "ASC" | "DESC" }[] = [], search: string, limit: number = 20, skip: number = 0) {
     const shortcutRepo = dataSource.getRepository(ShortCut)
     let query = shortcutRepo.createQueryBuilder("shortcut")
         .leftJoin('shortcut.user', 'user')
-        .where('user.id =:id', { userId })
+        .where('user.id =:id', { id:userId })
     if (search && search.length > 1) {
         query.where('shortcut.search @@ to_tsquery(:search)', { search })
     }
